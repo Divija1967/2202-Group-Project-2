@@ -2,3 +2,30 @@ const jobs = require('./jobs.json') // imports and parses
 const length = Object.keys(jobs).length;
 console.log(length);
 
+
+// 1. What is the category with the most job postings, and how many are they?
+let categoriesArray = [];
+let count = 0;
+for(category in jobs){
+    let cat = jobs[category].categories;
+    categoriesArray.push(...cat);
+}
+console.log(categoriesArray);
+let counts = [];
+let compare = 0;
+let most;
+for (let index = 0; index < categoriesArray.length-1; index++) {
+    var el = categoriesArray[index];
+    if(counts[el]== undefined){
+        counts[el] =1;
+    }
+    else {
+        counts[el] = counts[el] + 1;
+    }
+    if(counts[el]>compare){
+        compare = counts[el];
+        most = categoriesArray[index];
+    }
+    
+}
+console.log("The category with the most job postings is " + most + " with " + counts[most] + " postings");

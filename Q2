@@ -5,21 +5,7 @@ const cities = require('./jobs.json');
 function duplicate(cities){
     let cityArray = [];
 
-    /*
-    for(var i = 0; i<cities.length;i++){
-        if(cities[i].includes("(allows remote)")){
-            cities[i] = cities[i].replace('(allows remote)','');
-        }
-    }*/
-
-  
     for(let element of Object.keys(cities)){
-        if (cities[element].title.includes("(allows remote)")){
-            cities[element].title = cities[element].title.replace('(allows remote)','');
-        }
-
-
-
         let title = cities[element].title.split(/(?!\(.*)\s(?![^(]*?\))/g);//splits at each space not contained in parentheses
         city = title[title.length - 1];//last element will be the city, including province/territory/state and/or country
 
@@ -28,9 +14,7 @@ function duplicate(cities){
         //cityArray.filter(title => title.includes("allows remote"))
         
     }
-
     
-
 
     const counter = {};
     cityArray.forEach(item => {

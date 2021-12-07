@@ -93,4 +93,3 @@ getData('./Optimism_and_your_health.txt', 'sample').then((data) => {
 
 
 // Write the results in a file called results.txt
-
